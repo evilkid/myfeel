@@ -1,0 +1,391 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-image: url("../img/bg.png");
+}
+
+/*    --------------------------------------------------
+	:: Login Section
+	-------------------------------------------------- */
+#login {
+    padding-top: 50px
+}
+
+#login .form-wrap {
+    width: 30%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid rgba(128, 128, 128, 0.31);
+    border-radius: 3px;
+    padding: 20px;
+}
+
+#login h1 {
+    color: #555555;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#login h2 {
+    color: #7c7c7c;
+    font-size: 14px;
+    padding: 0;
+}
+
+#login .form-group {
+    margin-bottom: 25px;
+}
+
+#login .checkbox {
+    margin-bottom: 20px;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#login .checkbox.show:before {
+    content: '\e013';
+    color: #1fa67b;
+    font-size: 17px;
+    margin: 1px 0 0 3px;
+    position: absolute;
+    pointer-events: none;
+    font-family: 'Glyphicons Halflings';
+}
+
+#login .checkbox .character-checkbox {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#login .checkbox .label {
+    color: #6d6d6d;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+#login .btn.btn-custom {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#login .forget {
+    font-size: 13px;
+    text-align: center;
+    display: block;
+}
+
+/*    --------------------------------------------------
+	:: Inputs & Buttons
+	-------------------------------------------------- */
+.form-control {
+    color: #212121;
+}
+
+.btn-custom {
+    color: #fff;
+    background-color: #58c8d4;
+    width: 49%;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-custom:hover,
+.btn-custom:focus {
+    color: #fff;
+}
+
+/*    --------------------------------------------------
+    :: Footer
+	-------------------------------------------------- */
+#footer {
+    color: #6d6d6d;
+    font-size: 12px;
+    text-align: center;
+}
+
+#footer p {
+    margin-bottom: 0;
+}
+
+#footer a {
+    color: inherit;
+}
+
+.upper-case {
+    text-transform: uppercase;
+}
+
+.Margin5Px {
+    margin: 5px;
+}
+
+.Margin10Px {
+    margin: 10px;
+}
+
+.MarginBot5px {
+    margin-bottom: 5px;
+}
+
+.MarginTop5px {
+    margin-top: 5px;
+}
+
+.MinWidth1200 {
+    min-width: 1200px;
+}
+
+.MinHeight500 {
+    min-height: 500px;
+}
+
+#container {
+    height: 107px;
+    width: 105px;
+    position: relative;
+}
+
+#image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+}
+
+#satisfaction {
+    z-index: 100;
+    position: absolute;
+    color: gray;
+    font-size: 30px;
+    font-weight: bold;
+    left: 21px;
+    top: 40px;
+}
+
+#indice_satisfaction {
+    font-size: 18px;
+    width: 200px;
+    float: left;
+    padding-top: 25px;
+    line-height: 24px;
+}
+
+.custom_card {
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+.no_min_height {
+    min-height: 0 !important;
+}
+
+.no_padding {
+    padding: 0;
+}
+
+#pointsForts {
+    padding: 5px;
+}
+
+#pointsFaibles {
+    padding: 5px;
+}
+
+.clearLeft {
+    clear: left;
+}
+
+.clearLeftComment {
+    clear: left;
+    padding-left: 10px;
+    margin-left: -16px;
+    margin-right: -16px;
+    cursor: pointer;
+}
+
+.clearLeftComment:hover {
+    background: #f3f3f3;
+}
+
+.commentText {
+    display: inline-block;
+    margin: 10px;
+    word-break: break-all;
+    width: 80%;
+}
+
+.commentTextMain {
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.commentImage {
+    float: left;
+    margin-bottom: 5px;
+    width: 7%;
+    height: 7%;
+}
+
+.commentPageImage {
+    float: left;
+    margin-bottom: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+.commentPageImageMain {
+    float: left;
+    width: 90px;
+    height: 90px;
+}
+
+#comment_nav {
+    overflow-y: visible;
+    height: 85vh;
+    padding-right: 6%;
+}
+
+#comment_content {
+    height: 88vh;
+}
+
+.responseCommentImage {
+    width: 50px;
+    margin-right: 5px;
+}
+
+#survey_nav {
+    overflow-y: visible;
+    height: 85vh;
+    padding-right: 10px;
+}
+
+#survey_content {
+    height: 88vh;
+}
+
+.surveyBackgroundImage {
+    height: 97%;
+}
+
+.clearLeftSurvey {
+    clear: left;
+    padding-left: 10px;
+    margin-left: -16px;
+    margin-right: -16px;
+    cursor: pointer;
+}
+
+.clearLeftSurvey:hover {
+    background: #f3f3f3;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.questionTextField {
+    width: 60%;
+    float: left;
+}
+
+.questionButton {
+    float: right;
+    margin-top: 18px;
+    width: 13%;
+}
+
+#question_survey_content {
+    min-height: 88vh;
+}
+
+.tableDisplay {
+    display: table !important;
+}
+
+.mdl-layout-title {
+    font-size: 14px;
+}
+
+.mdl-card__supporting-text {
+    font-size: 0.9rem;
+}
+
+.mdl-radio__label, .mdl-checkbox__label {
+    font-size: 14px;
+}
+
+.frame {
+    height: 25px; /* equals max image height */
+    width: 160px;
+    white-space: nowrap;
+    margin: 1em 0;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, .3);
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+.is-active {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.mdl-layout-title a {
+    margin-right: 40px;
+}
