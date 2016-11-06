@@ -90,7 +90,8 @@ if (!isset($_SESSION['user'])) {
 
 
                                 <form action="#">
-                                    <div class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
+                                    <div
+                                        class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
                                         <input class="mdl-textfield__input" type="text" id="name">
                                         <label class="mdl-textfield__label" for="name">Nom de l'enquête</label>
                                     </div>
@@ -127,9 +128,23 @@ if (!isset($_SESSION['user'])) {
 
                                     </div>
 
-                                    <div class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="recommend">
+                                    <div
+                                        class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="text" id="recommend" pattern="\w*\?$">
                                         <label class="mdl-textfield__label" for="recommend">Recommanderiez-vous</label>
+                                    </div>
+
+                                    <div
+                                        class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="text" id="recommend" pattern="\w*\?$">
+                                        <label class="mdl-textfield__label" for="recommend">Question Ouverte</label>
+                                    </div>
+
+                                    <div
+                                        class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
+                                        <input class="mdl-textfield__input" type="text" id="recommend">
+                                        <label class="mdl-textfield__label" for="recommend">Partagez votre expérience
+                                            avec nous !</label>
                                     </div>
 
                                 </form>
@@ -152,7 +167,7 @@ if (!isset($_SESSION['user'])) {
 
     <script>
         questionCount = 0;
-
+        currId = 0;
         function addQuestion() {
             if (questionCount >= 10) {
                 alert("Nombre de questions limité.\nVous ne pouvez pas ajouter plus que 10 questions par enquête.");
@@ -160,14 +175,14 @@ if (!isset($_SESSION['user'])) {
             }
 
             questionCount++;
-
+            currId++;
             //outer div
             questionDiv = document.createElement('div');
-            questionDiv.id = "question" + questionCount + "Div";
+            questionDiv.id = "question" + currId + "Div";
             questionDiv.style = "clear: right";
 
             //prefix
-            prefix = '<div id="prefixCombobox' + questionCount + '" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select clearLeft" style="width: 175px;float: left;"> <input class="mdl-textfield__input" type="text" id="prefix' + questionCount + '" value="---Vide---" readonly tabIndex="-1"> <label for="prefix' + questionCount + '"> <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> </label> <label for="prefix' + questionCount + '" class="mdl-textfield__label">Prefix</label> <ul for="prefix' + questionCount + '" class="mdl-menu mdl-menu--bottom-left mdl-js-menu"> <li class="mdl-menu__item" value="0">---Vide---</li><li class="mdl-menu__item">Est-ce que</li><li class="mdl-menu__item">Aimez-vous</li><li class="mdl-menu__item">Que pensez-vous de</li><li class="mdl-menu__item">Comment vous</li><li class="mdl-menu__item">Êtes-vous</li></ul> </div>';
+            prefix = '<div id="prefixCombobox' + currId + '" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select clearLeft" style="width: 175px;float: left;"> <input class="mdl-textfield__input" type="text" id="prefix' + currId + '" value="---Vide---" readonly tabIndex="-1"> <label for="prefix' + currId + '"> <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> </label> <label for="prefix' + currId + '" class="mdl-textfield__label">Prefix</label> <ul for="prefix' + currId + '" class="mdl-menu mdl-menu--bottom-left mdl-js-menu"> <li class="mdl-menu__item" value="0">---Vide---</li><li class="mdl-menu__item">Est-ce que</li><li class="mdl-menu__item">Aimez-vous</li><li class="mdl-menu__item">Que pensez-vous de</li><li class="mdl-menu__item">Comment vous</li><li class="mdl-menu__item">Êtes-vous</li></ul> </div>';
 
 
             //text field
@@ -177,12 +192,13 @@ if (!isset($_SESSION['user'])) {
             questionInput = document.createElement("input");
             questionInput.className = "mdl-textfield__input";
             questionInput.setAttribute("type", "text");
-            questionInput.id = "question" + questionCount;
+            questionInput.setAttribute("pattern", "\\w*\\?$");
+            questionInput.id = "question" + currId;
             //label
             questionLabel = document.createElement("label");
             questionLabel.className = "mdl-textfield__label";
             questionLabel.setAttribute("for", questionInput.id);
-            questionLabel.innerText = "Question #" + questionCount;
+            questionLabel.innerText = "Question?";
 
             questionTextField.appendChild(questionInput);
             questionTextField.appendChild(questionLabel);
@@ -191,7 +207,7 @@ if (!isset($_SESSION['user'])) {
             questionDeleteButton = document.createElement("button");
             questionDeleteButton.className = "mdl-button mdl-js-button mdl-button--raised mdl-color--red-200 mdl-js-ripple-effect upper-case questionButton";
             questionDeleteButton.innerText = "Supprimer";
-            $(questionDeleteButton).on("click", questionCount, removeQuestion);
+            $(questionDeleteButton).on("click", currId, removeQuestion);
 
             questionDiv.append($.parseHTML(prefix)[0]);
             questionDiv.appendChild(questionTextField);
