@@ -147,6 +147,41 @@ if (!isset($_SESSION['user'])) {
                                             avec nous !</label>
                                     </div>
 
+                                    <label class="mdl-typography--display-1">Choisir le logo et le background</label>
+
+                                    <div class="mdl-grid">
+                                        <div class="mdl-cell--5-col">
+                                            <div style="margin-left: 15%">
+                                                <label class=" mdl-typography--subhead"
+                                                       style="margin-left: 11%;display: block;margin-top: 25px;">
+                                                    Logo par default
+                                                </label>
+                                                <br/>
+                                                <button style="margin-left: 8%;margin-bottom: 25px"
+                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect upper-case">
+                                                    Choisir un Logo
+                                                </button>
+                                                <label class=" mdl-typography--subhead"
+                                                       style="display: block;margin-top: 25px;">
+                                                    Image de fond par default
+                                                </label>
+                                                <br/>
+                                                <button style="margin-bottom: 25px"
+                                                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect upper-case">
+                                                    Choisir l'image de fond
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                        <div class="mdl-cell--7-col">
+                                            <img id="backgroundImage" src="img/default_background.jpg" alt="Default"
+                                                 width="100%" height="100%"/>
+                                            <div id="backgroundImageBox"></div>
+                                            <img id="logoImage" src="img/default_logo.png" alt="Default"/>
+                                            <span id="imageTextQuestion1">Question 1</span>
+                                            <span id="imageTextQuestion2">Etes-vous satisfait?</span>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>

@@ -389,3 +389,39 @@ a {
 .mdl-layout-title a {
     margin-right: 40px;
 }
+
+#backgroundImageBox {
+    width: calc(100% - 120px);
+    height: calc(100% - 40px);
+    background: rgba(0, 0, 0, 0.5);
+    margin: 20px 60px;
+    position: relative;
+}
+
+#backgroundImage {
+    float: left;
+}
+
+#logoImage {
+    position: relative;
+    margin-top: -110%;
+    margin-left: 42%;
+}
+
+#imageTextQuestion1 {
+    position: absolute;
+    margin-top: -24%;
+    margin-left: -10%;
+    color: #7d8fef;
+    font-weight: 200;
+    font-size: 25px;
+}
+
+#imageTextQuestion2 {
+    position: absolute;
+    margin-top: -18%;
+    margin-left: -15%;
+    color: #d8efef;
+    font-weight: 300;
+    font-size: 25px;
+}
