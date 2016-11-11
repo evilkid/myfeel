@@ -49,8 +49,8 @@ if (!isset($_SESSION['user'])) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
-<body class="MinWidth1200">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header ">
+<body class="">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header " style="min-width: 0;">
         <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
             <div class="mdl-layout__header-row">
             <span class="mdl-layout-title">
@@ -79,7 +79,7 @@ if (!isset($_SESSION['user'])) {
 
         <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--8-col mdl-cell--2-offset">
+                <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--12-col-tablet">
                     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col no_min_height">
                         <div class="mdl-card__supporting-text mdl-color-text--black custom_card"
                              id="question_survey_content">
@@ -89,14 +89,14 @@ if (!isset($_SESSION['user'])) {
                                 <span style="font-size: 30px; font-weight: bold;">Création d'enquête</span>
 
 
-                                <form action="#">
+                                <form action="#" method="post" id="newSurveyForm" name="newSurveyForm">
                                     <div
                                         class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="name">
+                                        <input class="mdl-textfield__input" type="text" id="name" name="nom">
                                         <label class="mdl-textfield__label" for="name">Nom de l'enquête</label>
                                     </div>
 
-                                    <div id="categoryCombobox"
+                                    <!-- <div id="categoryCombobox"
                                          class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select full-width">
                                         <input class="mdl-textfield__input" type="text" id="category"
                                                value="Cliquer pour choisir une catégorie" readonly tabIndex="-1">
@@ -113,7 +113,7 @@ if (!isset($_SESSION['user'])) {
                                             <li class="mdl-menu__item">E-commerce</li>
                                             <li class="mdl-menu__item">Evènement</li>
                                         </ul>
-                                    </div>
+                                    </div> -->
 
 
                                     <div>
@@ -130,20 +130,25 @@ if (!isset($_SESSION['user'])) {
 
                                     <div
                                         class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="recommend" pattern="\w*\?$">
+                                        <input class="mdl-textfield__input" type="text" id="recommend"
+                                               name="expressionQuestion"
+                                               pattern=".*\?$">
                                         <label class="mdl-textfield__label" for="recommend">Recommanderiez-vous</label>
                                     </div>
 
                                     <div
                                         class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="recommend" pattern="\w*\?$">
-                                        <label class="mdl-textfield__label" for="recommend">Question Ouverte</label>
+                                        <input class="mdl-textfield__input" type="text" id="openQuestion"
+                                               name="expression" pattern=".*\?$">
+                                        <label class="mdl-textfield__label" for="openQuestion">Question Ouverte</label>
                                     </div>
 
                                     <div
                                         class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="recommend">
-                                        <label class="mdl-textfield__label" for="recommend">Partagez votre expérience
+                                        <input class="mdl-textfield__input" type="text" id="shareExperience"
+                                               name="shareExperience">
+                                        <label class="mdl-textfield__label" for="shareExperience">Partagez votre
+                                            expérience
                                             avec nous !</label>
                                     </div>
 
@@ -155,18 +160,26 @@ if (!isset($_SESSION['user'])) {
                                                 <label class=" mdl-typography--subhead"
                                                        style="margin-left: 11%;display: block;margin-top: 25px;">
                                                     Logo par default
+                                                    <input id="logoImage-file" name="logo" type="file" accept="image/*"
+                                                           style="display: none"/>
+
                                                 </label>
                                                 <br/>
-                                                <button style="margin-left: 8%;margin-bottom: 25px"
+                                                <button style="margin-left: 8%;margin-bottom: 25px" id="logoImageButton"
+                                                        type="button"
                                                         class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect upper-case">
                                                     Choisir un Logo
                                                 </button>
                                                 <label class=" mdl-typography--subhead"
                                                        style="display: block;margin-top: 25px;">
                                                     Image de fond par default
+                                                    <input id="backgroundImage-file" name="background" type="file"
+                                                           accept="image/*"
+                                                           style="display: none"/>
                                                 </label>
                                                 <br/>
-                                                <button style="margin-bottom: 25px"
+                                                <button style="margin-bottom: 25px" id="backgroundImageButton"
+                                                        type="button"
                                                         class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect upper-case">
                                                     Choisir l'image de fond
                                                 </button>
@@ -175,12 +188,17 @@ if (!isset($_SESSION['user'])) {
                                         </div>
                                         <div class="mdl-cell--7-col">
                                             <img id="backgroundImage" src="img/default_background.jpg" alt="Default"
-                                                 width="100%" height="100%"/>
+                                            />
                                             <div id="backgroundImageBox"></div>
                                             <img id="logoImage" src="img/default_logo.png" alt="Default"/>
                                             <span id="imageTextQuestion1">Question 1</span>
                                             <span id="imageTextQuestion2">Etes-vous satisfait?</span>
                                         </div>
+
+                                        <button style="margin-bottom: 25px" type="submit" id="surveySubmitButton"
+                                                class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect upper-case">
+                                            Ajotuer
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -227,7 +245,7 @@ if (!isset($_SESSION['user'])) {
             questionInput = document.createElement("input");
             questionInput.className = "mdl-textfield__input";
             questionInput.setAttribute("type", "text");
-            questionInput.setAttribute("pattern", "\\w*\\?$");
+            questionInput.setAttribute("pattern", ".*\\?$");
             questionInput.id = "question" + currId;
             //label
             questionLabel = document.createElement("label");
@@ -244,7 +262,7 @@ if (!isset($_SESSION['user'])) {
             questionDeleteButton.innerText = "Supprimer";
             $(questionDeleteButton).on("click", currId, removeQuestion);
 
-            questionDiv.append($.parseHTML(prefix)[0]);
+            //questionDiv.append($.parseHTML(prefix)[0]);
             questionDiv.appendChild(questionTextField);
             questionDiv.appendChild(questionDeleteButton);
 
@@ -266,6 +284,39 @@ if (!isset($_SESSION['user'])) {
             });
             questionCount--;
         }
+
+        function readURL(input, imageInput) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#' + imageInput).attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $(document).ready(function () {
+            $("#logoImageButton").click(function () {
+                $("#logoImage-file").click();
+            });
+
+            $("#backgroundImageButton").click(function () {
+                $("#backgroundImage-file").click();
+            });
+
+            $("#backgroundImage-file").change(function () {
+                readURL(this, 'backgroundImage');
+            });
+
+            $("#logoImage-file").change(function () {
+                readURL(this, 'logoImage');
+            });
+        });
+
+
     </script>
 
 </body>

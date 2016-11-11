@@ -301,14 +301,14 @@ body {
 }
 
 .questionTextField {
-    width: 60%;
+    width: calc(100% - 130px);
     float: left;
 }
 
 .questionButton {
     float: right;
     margin-top: 18px;
-    width: 13%;
+/ / width: 13 %;
 }
 
 #question_survey_content {
@@ -392,7 +392,7 @@ a {
 
 #backgroundImageBox {
     width: calc(100% - 120px);
-    height: calc(100% - 40px);
+    height: calc(100% - 60px);
     background: rgba(0, 0, 0, 0.5);
     margin: 20px 60px;
     position: relative;
@@ -400,12 +400,15 @@ a {
 
 #backgroundImage {
     float: left;
+    width: 100%;
 }
 
 #logoImage {
     position: relative;
     margin-top: -110%;
     margin-left: 42%;
+    max-width: 64px;
+    max-height: 64px;
 }
 
 #imageTextQuestion1 {
@@ -424,4 +427,9 @@ a {
     color: #d8efef;
     font-weight: 300;
     font-size: 25px;
+}
+
+#surveySubmitButton {
+    margin: 0 auto;
+    color: white;
 }
