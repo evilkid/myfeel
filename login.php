@@ -84,7 +84,9 @@ if (isset($_POST['action'])
 							<br/>
                             <div class="row">
                                 <div class="col-sm-12">
-									<button class="btn btn-blue"" name="action" value="login" style="width:100%" >Se connecter</button>
+                                    <button class="btn btn-blue" name="action" value="login" style="width:100%">Se
+                                        connecter
+                                    </button>
                             </div>
                         </form>
                     </div>
