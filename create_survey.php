@@ -79,46 +79,28 @@ if (!isset($_SESSION['user'])) {
 
     <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--12-col-tablet">
+            <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--12-col-tablet"
+                 id="contentDiv">
                 <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col no_min_height">
                     <div class="mdl-card__supporting-text mdl-color-text--black custom_card"
                          id="question_survey_content">
 
                         <div class="mdl-card__supporting-text mdl-color-text--black"
                              style="width: 96%; min-height: 500px ">
-                            <span style="font-size: 30px; font-weight: bold;">Création d'enquête</span>
+                            <span style="font-size: 30px; font-weight: bold;">Création d'enquête:</span>
 
 
                             <form action="#" method="post" id="newSurveyForm" name="newSurveyForm">
                                 <input type="hidden" value="<?php echo $user->id; ?>;" name="id_user">
-                                <div
-                                    class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
-                                    <input class="mdl-textfield__input" type="text" id="name" name="nom">
-                                    <label class="mdl-textfield__label" for="name">Nom de l'enquête</label>
+                                <div class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
+                                    <label style="display: block; margin-bottom: 5px">Nom de l'enquête</label>
+
+                                    <input class="mdl-textfield__input" type="text" id="name" name="nom"
+                                           placeholder="Nom">
                                 </div>
 
-                                <!-- <div id="categoryCombobox"
-                                     class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select full-width">
-                                    <input class="mdl-textfield__input" type="text" id="category"
-                                           value="Cliquer pour choisir une catégorie" readonly tabIndex="-1">
-                                    <label for="category">
-                                        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-                                    </label>
-                                    <label for="category" class="mdl-textfield__label">Catégorie</label>
-                                    <ul for="category" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                        <li class="mdl-menu__item" value="0">Cliquer pour choisir une catégorie</li>
-                                        <li class="mdl-menu__item">Restaurant</li>
-                                        <li class="mdl-menu__item">Formation</li>
-                                        <li class="mdl-menu__item">E-Learning</li>
-                                        <li class="mdl-menu__item">Hotel</li>
-                                        <li class="mdl-menu__item">E-commerce</li>
-                                        <li class="mdl-menu__item">Evènement</li>
-                                    </ul>
-                                </div> -->
-
-
                                 <div>
-                                    <span style="font-size: 25px; float: left">Questions:</span>
+                                    <span style="font-size: 25px; float: left">Questions</span>
                                     <button style="float: right" onclick="addQuestion()" type="button"
                                             class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect upper-case">
                                         Ajouter
@@ -129,28 +111,36 @@ if (!isset($_SESSION['user'])) {
 
                                 </div>
 
-                                <div
-                                    class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
-                                    <input class="mdl-textfield__input" type="text" id="recommend"
-                                           name="expressionQuestion"
-                                           pattern=".*\?$">
-                                    <label class="mdl-textfield__label" for="recommend">Recommanderiez-vous</label>
+
+                                <div id="recommandationDiv">
+                                    <div class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label questionTextField">
+                                        <label style="display: block; margin-bottom: 5px;">Recommandation:</label>
+
+                                        <input class="mdl-textfield__input" type="text" id="recommend"
+                                               name="expressionQuestion"
+                                               placeholder="Texte de question de recommandation"
+                                               pattern=".*\?$">
+                                    </div>
+                                    <button type="button" class="mdl-button mdl-js-button
+                                            mdl-button--raised mdl-button--colored mdl-color--red-200
+                                            mdl-js-ripple-effect upper-case"
+                                            style="float: right; margin-top: 35px"
+                                            onclick="$('#recommandationDiv').hide()">
+                                        Supprimer
+                                    </button>
                                 </div>
 
-                                <div
-                                    class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
-                                    <input class="mdl-textfield__input" type="text" id="openQuestion"
-                                           name="expression" pattern=".*\?$">
-                                    <label class="mdl-textfield__label" for="openQuestion">Question Ouverte</label>
+                                <div class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
+                                    <label style="display: block; margin-bottom: 5px;">Question Ouverte:</label>
+                                    <input class="mdl-textfield__input" type="text" id="openQuestion" name="expression"
+                                           pattern=".*\?$"
+                                           placeholder="Ex. Laissez-nous votre numéro de téléphone"/>
+
                                 </div>
 
-                                <div
-                                    class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
+                                <div class="mdl-textfield mdl-js-textfield full-width mdl-textfield--floating-label">
                                     <input class="mdl-textfield__input" type="text" id="shareExperience"
-                                           name="shareExperience">
-                                    <label class="mdl-textfield__label" for="shareExperience">Partagez votre
-                                        expérience
-                                        avec nous !</label>
+                                           name="shareExperience" placeholder="Partagez votre expérience avec nous !">
                                 </div>
 
                                 <label class="mdl-typography--display-1">Choisir le logo et le background</label>
@@ -195,12 +185,15 @@ if (!isset($_SESSION['user'])) {
                                         <span id="imageTextQuestion1">Question 1</span>
                                         <span id="imageTextQuestion2">Etes-vous satisfait?</span>
                                     </div>
-
-                                    <button style="margin-bottom: 25px" type="submit" id="surveySubmitButton"
-                                            class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect upper-case">
-                                        Ajotuer
-                                    </button>
+                                    <div class="mdl-cell--12-col">
+                                        <button style="margin-bottom: 25px; display: block" type="submit"
+                                                id="surveySubmitButton"
+                                                class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect upper-case">
+                                            Ajotuer
+                                        </button>
+                                    </div>
                                 </div>
+
                             </form>
                         </div>
                     </div>
@@ -319,6 +312,13 @@ if (!isset($_SESSION['user'])) {
         });
 
         $("#newSurveyForm").on('submit', (function (e) {
+            if (questionCount < 1) {
+                alert("Vous devez ajouter au moin une question!");
+                return false;
+            }
+
+            $("#surveySubmitButton").prop("disabled", true);
+            $('body').css('cursor', 'wait');
             e.preventDefault();
             $("#message").empty();
             $('#loading').show();
@@ -338,12 +338,37 @@ if (!isset($_SESSION['user'])) {
                     } else {
                         alert(data.message);
                     }
+                },
+                done: function () {
+                    $("#surveySubmitButton").prop("disabled", false);
+                    $('body').css('cursor', 'default');
                 }
             });
         }));
+
+        $(window).resize(function () {
+            handleResize();
+        });
+
+        handleResize();
+
     });
 
 
+    function handleResize() {
+        $("#backgroundImageBox").height($("#backgroundImage").height() - 50);
+        console.log($("#backgroundImage").height());
+        $("#imageTextQuestion1").css("font-size", $("#backgroundImage").height() / 15);
+        $("#imageTextQuestion2").css("font-size", $("#backgroundImage").height() / 15);
+
+        if ($(window).width() <= 1180) {
+            $("#contentDiv").removeClass("mdl-cell--8-col-desktop mdl-cell--2-offset-desktop");
+            $("#contentDiv").addClass("mdl-cell--12-col-desktop");
+        } else {
+            $("#contentDiv").addClass("mdl-cell--8-col-desktop mdl-cell--2-offset-desktop");
+            $("#contentDiv").removeClass("mdl-cell--12-col-desktop");
+        }
+    }
     const SURVEY_URL = window.location.origin + "/myfeel_api/v1/enquetes";
 
 
